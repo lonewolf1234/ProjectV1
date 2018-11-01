@@ -7,6 +7,49 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid Height="30" VerticalAlignment="Top" Background="#eee">
+
+            <Grid HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="331">
+
+                <Button Name="Btn_Datapath"
+                    Content="Create Datapath" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Width="110" 
+                    Height="30"
+                    Click="Btn_Datapath_Click"/>
+
+                <Button Name="Btn_Component"
+                    Content="Create Component" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Width="110" 
+                    Height="30" 
+                    Margin="110,0,0,0"
+                    Click="Btn_Component_Click"/>
+
+                <Button Name="Btn_Signal"
+                    Content="Create Signal" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Width="110" 
+                    Height="30" 
+                    Margin="220,0,0,0"
+                    Click="Btn_Signal_Click"/>
+            </Grid>
+            <TextBlock x:Name="TextBlock_test"
+                TextWrapping="Wrap" 
+                Text="Status Bar"
+                Background="WhiteSmoke" 
+                TextAlignment="Center"
+                Width="250" 
+                Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Margin="331,0,212.6,0" 
+                />
+        </Grid>
+
+        <Grid  Margin="0,30,0,0"  Background="#aaa">
+            <!--  Margin="0,30,0,0" HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="794" Background="Crimson" -->
+        </Grid>
     </Grid>
 </Window>

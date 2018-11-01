@@ -24,5 +24,24 @@ namespace ProjectV1
         {
             InitializeComponent();
         }
+
+        private void Btn_Datapath_Click(object sender, RoutedEventArgs e)
+        {
+            TextBlock_test.Text = "Create Datapath Selected";
+
+            Window_Datapath window_Datapath = new Window_Datapath();
+            window_Datapath.Show();
+            ;
+        }
+
+        private void Btn_Component_Click(object sender, RoutedEventArgs e)
+        {
+            TextBlock_test.Text = "Create Component Selected";
+        }
+
+        private void Btn_Signal_Click(object sender, RoutedEventArgs e)
+        {
+            TextBlock_test.Text = "Create Signal Selected";
+        }
     }
 }
