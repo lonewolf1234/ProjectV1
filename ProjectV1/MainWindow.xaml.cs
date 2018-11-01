@@ -31,17 +31,23 @@ namespace ProjectV1
 
             Window_Datapath window_Datapath = new Window_Datapath();
             window_Datapath.Show();
-            ;
+            
         }
 
         private void Btn_Component_Click(object sender, RoutedEventArgs e)
         {
             TextBlock_test.Text = "Create Component Selected";
+
+            Window_Component window_Component = new Window_Component();
+            window_Component.Show();
         }
 
         private void Btn_Signal_Click(object sender, RoutedEventArgs e)
         {
             TextBlock_test.Text = "Create Signal Selected";
+
+            Window_Signal window_Signal = new Window_Signal();
+            window_Signal.Show();
         }
     }
 }
