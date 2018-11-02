@@ -6,8 +6,26 @@
         xmlns:local="clr-namespace:ProjectV1"
         mc:Ignorable="d"
         Title="Create Component" Height="450" Width="800">
-    <Grid>
-        <Label Content="Component window" HorizontalAlignment="Left" Margin="316,144,0,0" VerticalAlignment="Top"/>
+    
+    <Grid Margin="0,0,0,259">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <Label Content="Entity Name" HorizontalAlignment="Right" Margin="132,43,0,0" VerticalAlignment="Top"/>
+            <Label Content="Behavioural Name" HorizontalAlignment="Right" Margin="132,43,0,0" VerticalAlignment="Top"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <TextBox  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="132,43,0,0" Width="300" Background="WhiteSmoke"/>
+            <TextBox  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="132,43,0,0" Width="300" Background="WhiteSmoke"/>
+        </StackPanel>
+
+        <!-- Try to use stack pannel to create the order of feilds-->
+        
 
     </Grid>
 </Window>
