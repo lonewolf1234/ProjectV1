@@ -5,9 +5,117 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectV1"
         mc:Ignorable="d"
-        Title="Create Signal" Height="450" Width="800">
+        Title="Create Signal" Height="450" Width="801" ResizeMode="NoResize">
     <Grid>
-        <Label Content="Signal window" HorizontalAlignment="Left" Margin="316,144,0,0" VerticalAlignment="Top"/>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="0"
+            Text="Sginal Name"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+         />
+
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="0"
+            Text="Bus"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+         />
+
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="0"
+            Text="MSB"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+         />
+
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="0"
+            Text="LSB"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+         />
+
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="0"
+            Text="Source"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+        />
+
+        <TextBlock
+            Grid.Row="5"
+            Grid.Column="0"
+            Text="Destination"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+        />
+
+        <TextBox 
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="70,20,120,20"
+            Background="WhiteSmoke"
+        />
+
+        <CheckBox
+            Name="Bus"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="70,20,430,20"
+            VerticalAlignment="Center"
+            Checked="Bus_Checked"
+        />
+
+        <TextBox 
+            Name="MSB_TextBox"
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="70,20,420,20"
+            Background="WhiteSmoke"
+            PreviewTextInput="MSB_TextBox_PreviewTextInput"
+        />
+
+        <TextBox 
+            Name="LSB_TextBox"
+            Grid.Row="3"
+            Grid.Column="1"
+            Margin="70,20,420,20"
+            Background="WhiteSmoke"
+            PreviewTextInput="LSB_TextBox_PreviewTextInput"
+        />
+        
+        <ComboBox
+            Grid.Row="4"
+            Grid.Column="1"
+            Margin="70,20,120,20"
+        />
+
+        <ComboBox
+            Grid.Row="5"
+            Grid.Column="1"
+            Margin="70,20,120,20"
+        />
 
     </Grid>
 </Window>
