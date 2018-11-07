@@ -7,10 +7,76 @@
         mc:Ignorable="d"
         Title="Create Datapath" Height="450" Width="800">
     <Grid>
-        <Button Content="Finish" HorizontalAlignment="Left" Margin="583,272,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" />
+        
+        <!-- Grid Split into 2 sections. The first is for the name and behavourial. The second is for the table-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+
+
+        <!-- For name and behavourial-->
+        <Grid Grid.Row="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            
+            
+            <!-- Left side of the first Grid -->
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Entity"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+            />
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Architecture Name"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+            />
+
+            <!-- Left side of the first Grid -->
+            <TextBox 
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="70,20,120,20"
+                Background="WhiteSmoke"
+            />
+
+            <TextBox 
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="70,20,120,20"
+                Background="WhiteSmoke"
+            />
+        </Grid>
+        
+        <!--For Port info Table-->
+        <Grid Grid.Row="1">
+            
+        </Grid>
+        
+
+
+
+
+
+
+        <!--<Button Content="Finish" HorizontalAlignment="Left" Margin="583,272,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" />
         <Label Content="Entity Name" HorizontalAlignment="Left" Margin="132,43,0,0" VerticalAlignment="Top"/>
         <Label Content="Architecture Name" HorizontalAlignment="Left" Margin="132,84,0,0" VerticalAlignment="Top"/>
         <TextBox Name="Entity_textbox" HorizontalAlignment="Left" Height="23" Margin="306,46,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="263" Background="WhiteSmoke"/>
-        <TextBox Name="Architecture_textbox" HorizontalAlignment="Left" Height="23" Margin="306,87,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="263" Background="WhiteSmoke" />
+        <TextBox Name="Architecture_textbox" HorizontalAlignment="Left" Height="23" Margin="306,87,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="263" Background="WhiteSmoke" />-->
     </Grid>
 </Window>

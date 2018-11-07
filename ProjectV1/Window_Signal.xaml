@@ -22,6 +22,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
+        <!-- Left Side Column 0-->
 
         <TextBlock
             Grid.Row="0"
@@ -71,6 +73,8 @@
             VerticalAlignment="Center"
         />
 
+        <!-- Right Side Column 1-->
+        
         <TextBox 
             Grid.Row="0"
             Grid.Column="1"
@@ -104,7 +108,7 @@
             Background="WhiteSmoke"
             PreviewTextInput="LSB_TextBox_PreviewTextInput"
         />
-        
+
         <ComboBox
             Grid.Row="4"
             Grid.Column="1"
@@ -120,8 +124,17 @@
         <Button
             Grid.Row="6"
             Grid.Column="6"
-            
+            Content="Finish"
+            Margin="400,20,54,20"
         />
 
+        <Button
+            Grid.Row="6"
+            Grid.Column="6"
+            Content="Cancel"
+            Margin="304,20,150,20"
+        />
+
+       
     </Grid>
 </Window>
