@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectV1"
         mc:Ignorable="d"
-        Title="Create Datapath" Height="450" Width="800">
+        Title="Create Datapath" Height="800" Width="800">
     <Grid>
-        
+
         <!-- Grid Split into 2 sections. The first is for the name and behavourial. The second is for the table-->
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+
         </Grid.RowDefinitions>
 
 
@@ -24,49 +26,62 @@
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="150*"/>
+                <ColumnDefinition Width="115*"/>
+                <ColumnDefinition Width="529*"/>
             </Grid.ColumnDefinitions>
-            
-            
+
+
             <!-- Left side of the first Grid -->
             <TextBlock
                 Grid.Row="0"
-                Grid.Column="0"
-                Text="Entity"
+                Grid.Column="1"
+                Text="Entity Name"
                 HorizontalAlignment="Right"
-                VerticalAlignment="Center"
+                VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,24,528.6,24"
             />
 
             <TextBlock
                 Grid.Row="1"
-                Grid.Column="0"
+                Grid.Column="1"
                 Text="Architecture Name"
                 HorizontalAlignment="Right"
-                VerticalAlignment="Center"
+                VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,24,528.6,24.8"
             />
 
             <!-- Left side of the first Grid -->
             <TextBox 
                 Grid.Row="0"
-                Grid.Column="1"
-                Margin="70,20,120,20"
+                Grid.Column="2"
+                Margin="70.2,20,119.6,25"
                 Background="WhiteSmoke"
             />
 
             <TextBox 
                 Grid.Row="1"
-                Grid.Column="1"
-                Margin="70,20,120,20"
+                Grid.Column="2"
+                Margin="70.2,20,119.6,24.8"
                 Background="WhiteSmoke"
             />
         </Grid>
+
         
-        <!--For Port info Table-->
         <Grid Grid.Row="1">
             
+            <!-- Port Definition Stack Panel -->
+            
+            
+
         </Grid>
         
+        
+
+        <Grid Grid.Row="2">
+            
+            <!-- DataGrid to display the port data -->
+            
+        </Grid>
+
 
 
 
