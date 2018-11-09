@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ProjectV1
+namespace ProjectV1.Views
 {
     /// <summary>
     /// Interaction logic for Window_Datapath.xaml

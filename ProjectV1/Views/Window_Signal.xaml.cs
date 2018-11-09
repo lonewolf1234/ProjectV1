@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 
-namespace ProjectV1
+namespace ProjectV1.Views
 {
     /// <summary>
     /// Interaction logic for Window_Signal.xaml
