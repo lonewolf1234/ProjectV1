@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectV1"
         mc:Ignorable="d"
-        Title="Create Datapath" Height="800" Width="800">
+        Title="Create Datapath" Height="600" Width="800">
     <Grid>
 
         <!-- Grid Split into 2 sections. The first is for the name and behavourial. The second is for the table-->
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="4*"/>
             <RowDefinition Height="5*"/>
 
         </Grid.RowDefinitions>
@@ -33,45 +33,133 @@
 
 
             <!-- Left side of the first Grid -->
-            <TextBlock
+            <Label
                 Grid.Row="0"
                 Grid.Column="1"
-                Text="Entity Name"
+                Content="Entity Name"
+                VerticalAlignment="Center"
                 HorizontalAlignment="Right"
-                VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,24,528.6,24"
             />
 
-            <TextBlock
+            <Label
                 Grid.Row="1"
                 Grid.Column="1"
-                Text="Architecture Name"
+                Content="Architecture Name"
                 HorizontalAlignment="Right"
-                VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,24,528.6,24.8"
+                VerticalAlignment="Center" 
             />
 
             <!-- Left side of the first Grid -->
             <TextBox 
                 Grid.Row="0"
                 Grid.Column="2"
-                Margin="70.2,20,119.6,25"
+                Margin="60,15,250,15"
                 Background="WhiteSmoke"
             />
 
             <TextBox 
                 Grid.Row="1"
                 Grid.Column="2"
-                Margin="70.2,20,119.6,24.8"
+                Margin="60,15,250,15"
                 Background="WhiteSmoke"
             />
+            
         </Grid>
 
         
         <Grid Grid.Row="1">
             
             <!-- Port Definition Stack Panel -->
-            
-            
 
+            <StackPanel Orientation="Vertical" Margin="200,0">
+
+                <!-- Main Stack Panel -->
+
+                <Label 
+                    Content="Port Definition"
+                    Height="30"
+                    HorizontalAlignment="Center"
+                    FontWeight="Bold"
+                    FontSize="14"
+                />
+
+                <StackPanel Orientation="Horizontal" >
+                    <!-- First Stack Panel-->
+
+                    <Label
+                        Content="Port Name"
+                        Width="150"
+                        HorizontalContentAlignment="Right"
+                    />
+                    <TextBox
+                       Width="200"
+                       Margin="30,5"
+                    />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" >
+                    <!-- Second Stack Panel-->
+
+                    <Label
+                        Content="Direction"
+                        Width="150"
+                        HorizontalContentAlignment="Right"
+                    />
+                    <ComboBox Width="100" Margin="30,5">
+                        <ComboBoxItem Content="in"/>
+                        <ComboBoxItem Content="out"/>
+                        <ComboBoxItem Content="inout"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" >
+                    <!-- Third Stack Panel-->
+
+                    <Label
+                        Content="Bus"
+                        Width="150"
+                        HorizontalContentAlignment="Right"
+                    />
+                    <CheckBox
+                         Margin="30,5"
+                    />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" >
+                    <!-- Fourth Stack Panel-->
+
+                    <Label
+                        Content="MSB"
+                        Width="150"
+                        HorizontalContentAlignment="Right"
+                    />
+                    <TextBox
+                       Width="50"
+                       Margin="30,5"
+                    />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" >
+                    <!-- Fifth Stack Panel-->
+
+                    <Label
+                        Content="LSB"
+                        Width="150"
+                        HorizontalContentAlignment="Right"
+                    />
+                    <TextBox
+                       Width="50"
+                       Margin="30,5"
+                    />
+                </StackPanel>
+
+                <Button
+                    Margin="150,0"
+                    Height="20"
+                    Content="Add Port"
+                />
+                
+            </StackPanel>
         </Grid>
         
         
