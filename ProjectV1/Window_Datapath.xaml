@@ -13,9 +13,7 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="5*"/>
-
         </Grid.RowDefinitions>
-
 
         <!-- For name and behavourial-->
         <Grid Grid.Row="0">
@@ -63,18 +61,17 @@
                 Margin="60,15,250,15"
                 Background="WhiteSmoke"
             />
-            
+
         </Grid>
 
-        
+        <!-- For Port Definitions-->
         <Grid Grid.Row="1">
-            
             <!-- Port Definition Stack Panel -->
-
             <StackPanel Orientation="Vertical" Margin="200,0">
 
                 <!-- Main Stack Panel -->
 
+                <!-- Port Definition Label-->
                 <Label 
                     Content="Port Definition"
                     Height="30"
@@ -83,9 +80,8 @@
                     FontSize="14"
                 />
 
+                <!-- First Stack Panel-->
                 <StackPanel Orientation="Horizontal" >
-                    <!-- First Stack Panel-->
-
                     <Label
                         Content="Port Name"
                         Width="150"
@@ -97,9 +93,8 @@
                     />
                 </StackPanel>
 
+                <!-- Second Stack Panel-->
                 <StackPanel Orientation="Horizontal" >
-                    <!-- Second Stack Panel-->
-
                     <Label
                         Content="Direction"
                         Width="150"
@@ -112,8 +107,9 @@
                     </ComboBox>
                 </StackPanel>
 
+                <!-- Third Stack Panel-->
                 <StackPanel Orientation="Horizontal" >
-                    <!-- Third Stack Panel-->
+
 
                     <Label
                         Content="Bus"
@@ -125,9 +121,8 @@
                     />
                 </StackPanel>
 
+                <!-- Fourth Stack Panel-->
                 <StackPanel Orientation="Horizontal" >
-                    <!-- Fourth Stack Panel-->
-
                     <Label
                         Content="MSB"
                         Width="150"
@@ -139,9 +134,8 @@
                     />
                 </StackPanel>
 
+                <!-- Fifth Stack Panel-->
                 <StackPanel Orientation="Horizontal" >
-                    <!-- Fifth Stack Panel-->
-
                     <Label
                         Content="LSB"
                         Width="150"
@@ -154,32 +148,23 @@
                 </StackPanel>
 
                 <Button
-                    Margin="150,0"
+                    Margin="150,12"
                     Height="20"
                     Content="Add Port"
                 />
-                
+
             </StackPanel>
         </Grid>
-        
-        
 
+        <!-- For Port datagrid -->
         <Grid Grid.Row="2">
-            
+
             <!-- DataGrid to display the port data -->
-            
+            <DataGrid>
+                
+            </DataGrid>
+
         </Grid>
 
-
-
-
-
-
-
-        <!--<Button Content="Finish" HorizontalAlignment="Left" Margin="583,272,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" />
-        <Label Content="Entity Name" HorizontalAlignment="Left" Margin="132,43,0,0" VerticalAlignment="Top"/>
-        <Label Content="Architecture Name" HorizontalAlignment="Left" Margin="132,84,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="Entity_textbox" HorizontalAlignment="Left" Height="23" Margin="306,46,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="263" Background="WhiteSmoke"/>
-        <TextBox Name="Architecture_textbox" HorizontalAlignment="Left" Height="23" Margin="306,87,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="263" Background="WhiteSmoke" />-->
     </Grid>
 </Window>
