@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Code_Generator.Classes
+namespace ProjectV1.Models
 {
     class Port
     {
@@ -18,9 +18,9 @@ namespace Code_Generator.Classes
 
         public bool Bus { get; set; }
 
-        public int MSB { get; set; }
+        public string MSB { get; set; }
 
-        public int LSB { get; set; }
+        public string LSB { get; set; }
 
     }
 }

@@ -88,6 +88,7 @@
                         HorizontalContentAlignment="Right"
                     />
                     <TextBox
+                       Name="PortName_TB"
                        Width="200"
                        Margin="30,5"
                     />
@@ -100,7 +101,7 @@
                         Width="150"
                         HorizontalContentAlignment="Right"
                     />
-                    <ComboBox Width="100" Margin="30,5">
+                    <ComboBox Name="Direction_CB" Width="100" Margin="30,5">
                         <ComboBoxItem Content="in"/>
                         <ComboBoxItem Content="out"/>
                         <ComboBoxItem Content="inout"/>
@@ -109,15 +110,14 @@
 
                 <!-- Third Stack Panel-->
                 <StackPanel Orientation="Horizontal" >
-
-
                     <Label
                         Content="Bus"
                         Width="150"
                         HorizontalContentAlignment="Right"
                     />
                     <CheckBox
-                         Margin="30,5"
+                        Name="Bus_CB" 
+                        Margin="30,5"
                     />
                 </StackPanel>
 
@@ -129,6 +129,7 @@
                         HorizontalContentAlignment="Right"
                     />
                     <TextBox
+                       Name="MSB_TB"
                        Width="50"
                        Margin="30,5"
                     />
@@ -142,15 +143,18 @@
                         HorizontalContentAlignment="Right"
                     />
                     <TextBox
+                       Name="LSB_TB"
                        Width="50"
                        Margin="30,5"
                     />
                 </StackPanel>
 
                 <Button
+                    Name="AddPort"
                     Margin="150,12"
                     Height="20"
                     Content="Add Port"
+                    Click="AddPort_Click"
                 />
 
             </StackPanel>
@@ -160,8 +164,18 @@
         <Grid Grid.Row="2">
 
             <!-- DataGrid to display the port data -->
-            <DataGrid>
+            <DataGrid Name="PortDataGrid" HorizontalAlignment="Center">
+
                 
+                <!-- Column Header text and Binding-->
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Port ID" Width="100" Binding="{Binding ID}"/>
+                    <DataGridTextColumn Header="Port Name" Width="100" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Direction" Width="100" Binding="{Binding Direction}"/>
+                    <DataGridTextColumn Header="Bus" Width="100" Binding="{Binding Bus}"/>
+                    <DataGridTextColumn Header="MSB" Width="50" Binding="{Binding MSB}"/>
+                    <DataGridTextColumn Header="LSB" Width="50" Binding="{Binding LSB}"/>
+                </DataGrid.Columns>
             </DataGrid>
 
         </Grid>
