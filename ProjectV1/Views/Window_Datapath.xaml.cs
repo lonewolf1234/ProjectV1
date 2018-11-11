@@ -21,42 +21,16 @@ namespace ProjectV1.Views
     public partial class Window_Datapath : Window
     {
 
-        int UID = 2;
+        int UID = 0;
+
+        List<Port> ports = new List<Port>();
 
         public Window_Datapath()
         {
             InitializeComponent();
 
-            Port port1 = new Port
-            {
-                ID = 001,
-                Name = "clk",
-                Direction = "in",
-                Bus = false,
-                MSB = "0",
-                LSB = "0"
-            };
-
-            Port port2 = new Port
-            {
-                ID = 002,
-                Name = "datain",
-                Direction = "in",
-                Bus = true,
-                MSB = "7",
-                LSB = "0"
-            };
-
-            PortDataGrid.Items.Add(port1);
-            PortDataGrid.Items.Add(port2);
-
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
+        
         private void AddPort_Click(object sender, RoutedEventArgs e)
         {
             Port tempPort = new Port
@@ -68,13 +42,35 @@ namespace ProjectV1.Views
                 MSB = MSB_TB.Text,
                 LSB = LSB_TB.Text
             };
-
             UID = UID + 1;
 
+            //add port to the data grid
             PortDataGrid.Items.Add(tempPort);
 
-            PortName_TB.Text = String.Empty;
+            //Add Port to list
+            ports.Add(tempPort);
 
+            //Clear data present in the port dat fields
+            //Resets it to default
+            PortName_TB.Text = String.Empty;
+            Direction_CB.Text = String.Empty;
+            Bus_CB.IsChecked = false;
+            MSB_TB.Text = String.Empty;
+            LSB_TB.Text = String.Empty;
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Finish_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            this.Close();
+        }
+
+        
     }
 }

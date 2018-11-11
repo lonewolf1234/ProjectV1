@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectV1"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Create Datapath" Height="600" Width="800">
     <Grid>
 
@@ -12,7 +13,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="4*"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+            
         </Grid.RowDefinitions>
 
         <!-- For name and behavourial-->
@@ -130,7 +133,7 @@
                     />
                     <TextBox
                        Name="MSB_TB"
-                       Width="50"
+                       Width="55"
                        Margin="30,5"
                     />
                 </StackPanel>
@@ -144,7 +147,7 @@
                     />
                     <TextBox
                        Name="LSB_TB"
-                       Width="50"
+                       Width="55"
                        Margin="30,5"
                     />
                 </StackPanel>
@@ -161,12 +164,13 @@
         </Grid>
 
         <!-- For Port datagrid -->
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" Margin="0,10">
 
-            <!-- DataGrid to display the port data -->
-            <DataGrid Name="PortDataGrid" HorizontalAlignment="Center">
-
+           
                 
+        <!-- DataGrid to display the port data -->
+            <DataGrid Name="PortDataGrid" HorizontalAlignment="Center" VerticalAlignment="Top" Height="175">
+
                 <!-- Column Header text and Binding-->
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Port ID" Width="100" Binding="{Binding ID}"/>
@@ -178,6 +182,26 @@
                 </DataGrid.Columns>
             </DataGrid>
 
+        </Grid>
+        
+        <!-- Finish and Cancel Buttons-->
+        <Grid Grid.Row="3">
+            <Button
+                Grid.Row="3"
+                Name="Cancel"
+                Content="Cancel"
+                Margin="575,10,150,22"
+                Click="Cancel_Click"
+                
+            />
+
+            <Button
+                Grid.Row="3"
+                Name="Finish"
+                Content="Finish"
+                Margin="670,10,55,22"
+                Click="Finish_Click"
+            />
         </Grid>
 
     </Grid>
