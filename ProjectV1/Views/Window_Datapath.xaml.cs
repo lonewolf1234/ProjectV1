@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ProjectV1.Models;
+using Newtonsoft.Json;
 
 namespace ProjectV1.Views
 {
@@ -20,17 +21,24 @@ namespace ProjectV1.Views
     /// </summary>
     public partial class Window_Datapath : Window
     {
+        
 
         int UID = 0;
 
+        public string OutputJSON { get { return _OutputJSON; } }
+
+        public string _OutputJSON { get; set; }
+
         List<Port> ports = new List<Port>();
+
+        DataPath dataPath1 = new DataPath();
+      
 
         public Window_Datapath()
         {
             InitializeComponent();
-
         }
-        
+
         private void AddPort_Click(object sender, RoutedEventArgs e)
         {
             Port tempPort = new Port
@@ -66,11 +74,25 @@ namespace ProjectV1.Views
 
         private void Finish_Click(object sender, RoutedEventArgs e)
         {
+            //MyVaribles.Datapath.ID = UID;
+            //MyVaribles.Datapath.Name = EntityNameTB.Text;
+            //MyVaribles.Datapath.ArchName = ArchNameTB.Text;
+            //MyVaribles.Datapath.Ports = ports;
 
+            DataPath dataPathObj = new DataPath()
+            {
+                ID = 001,
+                Name = EntityNameTB.Text,
+                ArchName = ArchNameTB.Text,
+                Ports = ports
+            };
+
+            dataPath1 = dataPathObj;
+
+            _OutputJSON = JsonConvert.SerializeObject(dataPath1);
 
             this.Close();
         }
 
-        
     }
 }

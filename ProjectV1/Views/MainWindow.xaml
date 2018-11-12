@@ -51,6 +51,12 @@
 
         <Grid  Margin="0,30,0,0"  Background="#aaa">
             <!--  Margin="0,30,0,0" HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="794" Background="Crimson" -->
+
+            <TextBlock>
+                
+            </TextBlock>
+
+
         </Grid>
     </Grid>
 </Window>

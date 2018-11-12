@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ProjectV1.Models;
+using Newtonsoft.Json;
 
 namespace ProjectV1.Views
 {
@@ -20,6 +22,8 @@ namespace ProjectV1.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+        DataPath DataPath = new DataPath();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,7 +34,13 @@ namespace ProjectV1.Views
             TextBlock_test.Text = "Create Datapath Selected";
 
             Window_Datapath window_Datapath = new Window_Datapath();
-            window_Datapath.Show();
+            
+            if( window_Datapath.IsActive== false)
+            {
+                string InputJSON = window_Datapath.OutputJSON;
+                DataPath = JsonConvert.DeserializeObject<DataPath>(InputJSON);
+            }
+           
             
         }
 
