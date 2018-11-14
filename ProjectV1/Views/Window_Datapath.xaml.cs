@@ -21,8 +21,6 @@ namespace ProjectV1.Views
     /// </summary>
     public partial class Window_Datapath : Window
     {
-        
-
         int UID = 0;
 
         public string OutputJSON { get { return _OutputJSON; } }
@@ -32,7 +30,6 @@ namespace ProjectV1.Views
         List<Port> ports = new List<Port>();
 
         DataPath dataPath1 = new DataPath();
-      
 
         public Window_Datapath()
         {
@@ -69,6 +66,7 @@ namespace ProjectV1.Views
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+            
             this.Close();
         }
 
@@ -89,7 +87,9 @@ namespace ProjectV1.Views
 
             dataPath1 = dataPathObj;
 
-            _OutputJSON = JsonConvert.SerializeObject(dataPath1);
+            _OutputJSON = JsonConvert.SerializeObject(dataPath1, Formatting.Indented);
+
+            this.DialogResult = true;
 
             this.Close();
         }

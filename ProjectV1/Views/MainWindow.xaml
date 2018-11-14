@@ -38,6 +38,7 @@
                     Margin="220,0,0,0"
                     Click="Btn_Signal_Click"/>
             </Grid>
+            
             <TextBlock x:Name="TextBlock_test"
                 TextWrapping="Wrap" 
                 Text="Status Bar"
@@ -46,15 +47,27 @@
                 Width="250" 
                 Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Margin="331,0,212.6,0" 
-                />
+            />
+            <Button 
+                Name="Generate"
+                Content="Generate" 
+                HorizontalAlignment="Left" 
+                Margin="707,5,0,0" 
+                VerticalAlignment="Top" 
+                Width="75"
+                Click="Generate_Click"/>
+
+
         </Grid>
 
-        <Grid  Margin="0,30,0,0"  Background="#aaa">
+        <Grid  Margin="0,30,0,0"  >
             <!--  Margin="0,30,0,0" HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="794" Background="Crimson" -->
 
-            <TextBlock>
-                
-            </TextBlock>
+            <TextBlock
+               Name="JSON_TB"
+                Text="{Binding Path= InputJSON, UpdateSourceTrigger=PropertyChanged}"
+                />
+
 
 
         </Grid>

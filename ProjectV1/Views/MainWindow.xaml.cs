@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ProjectV1.Models;
 using Newtonsoft.Json;
+using System.Diagnostics;
+using System.IO;
 
 namespace ProjectV1.Views
 {
@@ -24,9 +26,12 @@ namespace ProjectV1.Views
     {
         DataPath DataPath = new DataPath();
 
+        public string JSONString { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void Btn_Datapath_Click(object sender, RoutedEventArgs e)
@@ -35,13 +40,17 @@ namespace ProjectV1.Views
 
             Window_Datapath window_Datapath = new Window_Datapath();
             
-            if( window_Datapath.IsActive== false)
+            if( window_Datapath.ShowDialog()== true)
             {
-                string InputJSON = window_Datapath.OutputJSON;
+                var InputJSON = window_Datapath.OutputJSON;
+                JSONString = window_Datapath.OutputJSON.ToString();
                 DataPath = JsonConvert.DeserializeObject<DataPath>(InputJSON);
+
+                Debug.WriteLine(InputJSON);
+                Debug.WriteLine(JSONString);
+               
+                System.IO.File.WriteAllText(@"C:\Users\815006656\Desktop\Project repo\ProjectV1\ProjectV1\TextFiles\JSONText.JSON", InputJSON);
             }
-           
-            
         }
 
         private void Btn_Component_Click(object sender, RoutedEventArgs e)
@@ -58,6 +67,110 @@ namespace ProjectV1.Views
 
             Window_Signal window_Signal = new Window_Signal();
             window_Signal.Show();
+        }
+
+        private void GenerateCode(DataPath Data)
+        {
+            List<string> port = new List<string>();
+
+            //Library Code
+            string [] Libraries_txt = 
+            {
+                "library IEEE;",
+                "use IEEE.STD_LOGIC_1164.ALL;",
+                "use IEEE.STD_LOGIC_ARITH.ALL;",
+                "use IEEE.STD_LOGIC_UNSIGNED.ALL;",
+                "",
+            };
+
+            //Entity Begin code
+            string EntityBegin_txt = $"entity {DataPath.Name} is";
+
+            //Port Code
+            List<string> ports_txt = new List<string>();
+
+            if (DataPath.Ports.Count > 0)
+            {
+                
+                foreach (Port p in DataPath.Ports)
+                {
+                    string vector = "";
+
+                    if (p.Bus == true)
+                    {
+                        vector = $"_vector({p.MSB} downto {p.LSB})";
+                    }
+
+                    string s = $"\t{p.Name} : {p.Direction} std_logic{vector}";
+
+
+                    if (DataPath.Ports.First() == p )
+                    {
+                        ports_txt.Add("\tPort(" + s +";");
+                    }
+                    else if(DataPath.Ports.Last() == p)
+                    {
+                        ports_txt.Add("\t" + s + ");" );
+                    }
+                    else
+                    {
+                        ports_txt.Add("\t" + s + ";");
+                    }
+                }
+            }
+            else
+            {
+                ports_txt.Add("\tPort(\n);");
+            }
+
+            //Entity End Code
+            string EntityEnd_txt = $"end {DataPath.Name};";
+
+            //Behavioral Begin code
+            string BehavioralBegin_txt = $"architecture {DataPath.ArchName} of {DataPath.Name} is";
+
+            //Component Code
+
+        
+            //Behavioral End Code
+            string BehavioralEnd_txt = $"\nend {DataPath.ArchName};";
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+            using (StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(@"C:\Users\815006656\Desktop\Project repo\ProjectV1\ProjectV1\TextFiles", "VHDLFile.txt")))
+            {
+                //libraries
+                foreach (string line in Libraries_txt)
+                    outputFile.WriteLine(line);
+
+                //Entity begin
+                outputFile.WriteLine(EntityBegin_txt);
+
+                //Ports
+                foreach (string line in ports_txt)
+                    outputFile.WriteLine(line);
+
+                //Entity End
+                outputFile.WriteLine(EntityEnd_txt);
+                outputFile.WriteLine("");
+
+                //Behaviourial Begin
+                outputFile.WriteLine(BehavioralBegin_txt);
+                outputFile.WriteLine("");
+                outputFile.WriteLine("");
+
+                //Behaviourial End
+                outputFile.WriteLine(BehavioralEnd_txt);
+            }
+        }
+
+       
+
+        private void Generate_Click(object sender, RoutedEventArgs e)
+        {
+            GenerateCode(DataPath);
         }
     }
 }
