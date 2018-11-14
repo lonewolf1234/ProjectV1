@@ -72,11 +72,7 @@ namespace ProjectV1.Views
 
         private void Finish_Click(object sender, RoutedEventArgs e)
         {
-            //MyVaribles.Datapath.ID = UID;
-            //MyVaribles.Datapath.Name = EntityNameTB.Text;
-            //MyVaribles.Datapath.ArchName = ArchNameTB.Text;
-            //MyVaribles.Datapath.Ports = ports;
-
+            
             DataPath dataPathObj = new DataPath()
             {
                 ID = 001,

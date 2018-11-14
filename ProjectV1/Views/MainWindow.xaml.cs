@@ -24,10 +24,18 @@ namespace ProjectV1.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Main Data Produced by the windows
+        /// </summary>
         DataPath DataPath = new DataPath();
 
-        public string JSONString { get; set; }
+        List<Component> components = new List<Component>();
 
+        List<Signal> signals = new List<Signal>();
+
+
+    ////////////////////////////////////////////////////////////////
+    
         public MainWindow()
         {
             InitializeComponent();
@@ -43,11 +51,9 @@ namespace ProjectV1.Views
             if( window_Datapath.ShowDialog()== true)
             {
                 var InputJSON = window_Datapath.OutputJSON;
-                JSONString = window_Datapath.OutputJSON.ToString();
                 DataPath = JsonConvert.DeserializeObject<DataPath>(InputJSON);
 
                 Debug.WriteLine(InputJSON);
-                Debug.WriteLine(JSONString);
                
                 System.IO.File.WriteAllText(@"C:\Users\815006656\Desktop\Project repo\ProjectV1\ProjectV1\TextFiles\JSONText.JSON", InputJSON);
             }
@@ -67,6 +73,11 @@ namespace ProjectV1.Views
 
             Window_Signal window_Signal = new Window_Signal();
             window_Signal.Show();
+        }
+
+        private void Generate_Click(object sender, RoutedEventArgs e)
+        {
+            GenerateCode(DataPath);
         }
 
         private void GenerateCode(DataPath Data)
@@ -137,7 +148,7 @@ namespace ProjectV1.Views
 
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            ///
+          
 
             using (StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(@"C:\Users\815006656\Desktop\Project repo\ProjectV1\ProjectV1\TextFiles", "VHDLFile.txt")))
             {
@@ -165,12 +176,6 @@ namespace ProjectV1.Views
                 outputFile.WriteLine(BehavioralEnd_txt);
             }
         }
-
-       
-
-        private void Generate_Click(object sender, RoutedEventArgs e)
-        {
-            GenerateCode(DataPath);
-        }
+        
     }
 }
