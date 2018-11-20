@@ -16,6 +16,7 @@ using ProjectV1.Models;
 using Newtonsoft.Json;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 
 namespace ProjectV1.Views
 {
@@ -33,13 +34,16 @@ namespace ProjectV1.Views
 
         List<Signal> signals = new List<Signal>();
 
+        public string DebugPath { get; set; }
 
-    ////////////////////////////////////////////////////////////////
-    
+        ////////////////////////////////////////////////////////////////
+
         public MainWindow()
         {
             InitializeComponent();
-            
+
+            DebugPath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
         }
 
         private void Btn_Datapath_Click(object sender, RoutedEventArgs e)
@@ -55,7 +59,8 @@ namespace ProjectV1.Views
 
                 Debug.WriteLine(InputJSON);
                
-                System.IO.File.WriteAllText(@"C:\Users\815006656\Desktop\Project repo\ProjectV1\ProjectV1\TextFiles\JSONText.JSON", InputJSON);
+                System.IO.File.WriteAllText(System.IO.Path.Combine(DebugPath,"JSONFile.txt"), InputJSON);
+                
             }
         }
 
@@ -78,6 +83,7 @@ namespace ProjectV1.Views
         private void Generate_Click(object sender, RoutedEventArgs e)
         {
             GenerateCode(DataPath);
+            TextBlock_test.Text = "Code Generated";
         }
 
         private void GenerateCode(DataPath Data)
@@ -148,10 +154,14 @@ namespace ProjectV1.Views
 
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-          
+      
+            
 
-            using (StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(@"C:\Users\815006656\Desktop\Project repo\ProjectV1\ProjectV1\TextFiles", "VHDLFile.txt")))
+            using (StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(DebugPath, "VHDLFile.txt")))
+                
             {
+                outputFile.WriteLine(DebugPath);
+
                 //libraries
                 foreach (string line in Libraries_txt)
                     outputFile.WriteLine(line);

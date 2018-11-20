@@ -8,6 +8,8 @@ namespace ProjectV1.Models
 {
     class Signal
     {
+        public Signal () {}
+
         public string Name { get; set; }
 
         public bool Bus { get; set; }
@@ -15,5 +17,13 @@ namespace ProjectV1.Models
         public int MSB { get; set; }
 
         public int LSB { get; set; }
+
+        public string Destination { get; set; }
+
+        public string Destination_Comp { get; set; }
+
+        public string Source { get; set; }
+
+        public string Source_Comp { get; set; }
     }
 }
