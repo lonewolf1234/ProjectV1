@@ -63,10 +63,29 @@
         <Grid  Margin="0,30,0,0"  >
             <!--  Margin="0,30,0,0" HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="794" Background="Crimson" -->
 
-            <TextBlock
-               Name="JSON_TB"
-                Text="{Binding Path= InputJSON, UpdateSourceTrigger=PropertyChanged}"
-                />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Background="LightSlateGray">
+                <Label
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Project Files View"
+                    FontSize="16"
+                    />
+            </Grid>
+
+            <Grid Grid.Column="1" Background="LightGray">
+                <Label
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="Workspace"
+                    FontSize="20"
+                    
+                    />
+            </Grid>
 
 
 
