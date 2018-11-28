@@ -144,7 +144,9 @@ namespace ProjectV1.Views
             string EntityEnd_txt = $"end {DataPath.Name};";
 
             //Behavioral Begin code
-            string BehavioralBegin_txt = $"architecture {DataPath.ArchName} of {DataPath.Name} is";
+            string BehavioralBegin_txt = $"architecture {DataPath.ArchName} of {DataPath.Name} is" ;
+
+            string Begin_txt = "\nbegin";
 
             //Component Code
 
@@ -179,6 +181,7 @@ namespace ProjectV1.Views
 
                 //Behaviourial Begin
                 outputFile.WriteLine(BehavioralBegin_txt);
+                outputFile.WriteLine(Begin_txt);
                 outputFile.WriteLine("");
                 outputFile.WriteLine("");
 
