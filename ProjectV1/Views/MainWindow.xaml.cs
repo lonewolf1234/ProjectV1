@@ -90,9 +90,11 @@ namespace ProjectV1.Views
         {
             List<string> port = new List<string>();
 
-            //Library Code
-            string [] Libraries_txt = 
+            if(DataPath != null)
             {
+                //Library Code
+                string[] Libraries_txt =
+                {
                 "library IEEE;",
                 "use IEEE.STD_LOGIC_1164.ALL;",
                 "use IEEE.STD_LOGIC_ARITH.ALL;",
@@ -100,94 +102,97 @@ namespace ProjectV1.Views
                 "",
             };
 
-            //Entity Begin code
-            string EntityBegin_txt = $"entity {DataPath.Name} is";
+                //Entity Begin code
+                string EntityBegin_txt = $"entity {DataPath.Name} is";
 
-            //Port Code
-            List<string> ports_txt = new List<string>();
+                //Port Code
+                List<string> ports_txt = new List<string>();
 
-            if (DataPath.Ports.Count > 0)
-            {
-                
-                foreach (Port p in DataPath.Ports)
+                if (DataPath.Ports.Count > 0)
                 {
-                    string vector = "";
 
-                    if (p.Bus == true)
+                    foreach (Port p in DataPath.Ports)
                     {
-                        vector = $"_vector({p.MSB} downto {p.LSB})";
-                    }
+                        string vector = "";
 
-                    string s = $"\t{p.Name} : {p.Direction} std_logic{vector}";
+                        if (p.Bus == true)
+                        {
+                            vector = $"_vector({p.MSB} downto {p.LSB})";
+                        }
+
+                        string s = $"\t{p.Name} : {p.Direction} std_logic{vector}";
 
 
-                    if (DataPath.Ports.First() == p )
-                    {
-                        ports_txt.Add("\tPort(" + s +";");
-                    }
-                    else if(DataPath.Ports.Last() == p)
-                    {
-                        ports_txt.Add("\t" + s + ");" );
-                    }
-                    else
-                    {
-                        ports_txt.Add("\t" + s + ";");
+                        if (DataPath.Ports.First() == p)
+                        {
+                            ports_txt.Add("\tPort(" + s + ";");
+                        }
+                        else if (DataPath.Ports.Last() == p)
+                        {
+                            ports_txt.Add("\t" + s + ");");
+                        }
+                        else
+                        {
+                            ports_txt.Add("\t" + s + ";");
+                        }
                     }
                 }
+                else
+                {
+                    ports_txt.Add("\tPort(\n);");
+                }
+
+                //Entity End Code
+                string EntityEnd_txt = $"end {DataPath.Name};";
+
+                //Behavioral Begin code
+                string BehavioralBegin_txt = $"architecture {DataPath.ArchName} of {DataPath.Name} is";
+
+                string Begin_txt = "\nbegin";
+
+                //Component Code
+
+
+                //Behavioral End Code
+                string BehavioralEnd_txt = $"\nend {DataPath.ArchName};";
+
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+                using (StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(DebugPath, "VHDLFile.txt")))
+
+                {
+                    outputFile.WriteLine(DebugPath);
+
+                    //libraries
+                    foreach (string line in Libraries_txt)
+                        outputFile.WriteLine(line);
+
+                    //Entity begin
+                    outputFile.WriteLine(EntityBegin_txt);
+
+                    //Ports
+                    foreach (string line in ports_txt)
+                        outputFile.WriteLine(line);
+
+                    //Entity End
+                    outputFile.WriteLine(EntityEnd_txt);
+                    outputFile.WriteLine("");
+
+                    //Behaviourial Begin
+                    outputFile.WriteLine(BehavioralBegin_txt);
+                    outputFile.WriteLine(Begin_txt);
+                    outputFile.WriteLine("");
+                    outputFile.WriteLine("");
+
+                    //Behaviourial End
+                    outputFile.WriteLine(BehavioralEnd_txt);
+                }
             }
-            else
-            {
-                ports_txt.Add("\tPort(\n);");
-            }
 
-            //Entity End Code
-            string EntityEnd_txt = $"end {DataPath.Name};";
-
-            //Behavioral Begin code
-            string BehavioralBegin_txt = $"architecture {DataPath.ArchName} of {DataPath.Name} is" ;
-
-            string Begin_txt = "\nbegin";
-
-            //Component Code
-
-        
-            //Behavioral End Code
-            string BehavioralEnd_txt = $"\nend {DataPath.ArchName};";
-
-
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-      
-            
-
-            using (StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(DebugPath, "VHDLFile.txt")))
-                
-            {
-                outputFile.WriteLine(DebugPath);
-
-                //libraries
-                foreach (string line in Libraries_txt)
-                    outputFile.WriteLine(line);
-
-                //Entity begin
-                outputFile.WriteLine(EntityBegin_txt);
-
-                //Ports
-                foreach (string line in ports_txt)
-                    outputFile.WriteLine(line);
-
-                //Entity End
-                outputFile.WriteLine(EntityEnd_txt);
-                outputFile.WriteLine("");
-
-                //Behaviourial Begin
-                outputFile.WriteLine(BehavioralBegin_txt);
-                outputFile.WriteLine(Begin_txt);
-                outputFile.WriteLine("");
-                outputFile.WriteLine("");
-
-                //Behaviourial End
-                outputFile.WriteLine(BehavioralEnd_txt);
-            }
+           
         }
         
     }
