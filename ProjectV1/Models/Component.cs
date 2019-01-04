@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectV1.Models
 {
-    class Component
+    partial class Component
     {
         public Component() { }
 

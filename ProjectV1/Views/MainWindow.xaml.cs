@@ -28,7 +28,7 @@ namespace ProjectV1.Views
         /// <summary>
         /// Main Data Produced by the windows
         /// </summary>
-        DataPath DataPath = new DataPath();
+        DataPath Datapath = new DataPath();
 
         List<Component> components = new List<Component>();
 
@@ -55,7 +55,7 @@ namespace ProjectV1.Views
             if( window_Datapath.ShowDialog()== true)
             {
                 var InputJSON = window_Datapath.OutputJSON;
-                DataPath = JsonConvert.DeserializeObject<DataPath>(InputJSON);
+                Datapath = JsonConvert.DeserializeObject<DataPath>(InputJSON);
 
                 Debug.WriteLine(InputJSON);
                
@@ -82,15 +82,17 @@ namespace ProjectV1.Views
 
         private void Generate_Click(object sender, RoutedEventArgs e)
         {
-            GenerateCode(DataPath);
+            //GenerateCode(Datapath);
             TextBlock_test.Text = "Code Generated";
         }
 
+        #region
+        /*
         private void GenerateCode(DataPath Data)
         {
             List<string> port = new List<string>();
 
-            if(DataPath != null)
+            if(Data != null)
             {
                 //Library Code
                 string[] Libraries_txt =
@@ -103,15 +105,15 @@ namespace ProjectV1.Views
             };
 
                 //Entity Begin code
-                string EntityBegin_txt = $"entity {DataPath.Name} is";
+                string EntityBegin_txt = $"entity {Data.Name} is";
 
                 //Port Code
                 List<string> ports_txt = new List<string>();
 
-                if (DataPath.Ports.Count > 0)
+                if (Datapath.Ports.Count > 0)
                 {
 
-                    foreach (Port p in DataPath.Ports)
+                    foreach (Port p in Datapath.Ports)
                     {
                         string vector = "";
 
@@ -123,11 +125,11 @@ namespace ProjectV1.Views
                         string s = $"\t{p.Name} : {p.Direction} std_logic{vector}";
 
 
-                        if (DataPath.Ports.First() == p)
+                        if (Datapath.Ports.First() == p)
                         {
                             ports_txt.Add("\tPort(" + s + ";");
                         }
-                        else if (DataPath.Ports.Last() == p)
+                        else if (Datapath.Ports.Last() == p)
                         {
                             ports_txt.Add("\t" + s + ");");
                         }
@@ -143,10 +145,10 @@ namespace ProjectV1.Views
                 }
 
                 //Entity End Code
-                string EntityEnd_txt = $"end {DataPath.Name};";
+                string EntityEnd_txt = $"end {Datapath.Name};";
 
                 //Behavioral Begin code
-                string BehavioralBegin_txt = $"architecture {DataPath.ArchName} of {DataPath.Name} is";
+                string BehavioralBegin_txt = $"architecture {Datapath.ArchName} of {Datapath.Name} is";
 
                 string Begin_txt = "\nbegin";
 
@@ -154,7 +156,7 @@ namespace ProjectV1.Views
 
 
                 //Behavioral End Code
-                string BehavioralEnd_txt = $"\nend {DataPath.ArchName};";
+                string BehavioralEnd_txt = $"\nend {Datapath.ArchName};";
 
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -194,6 +196,7 @@ namespace ProjectV1.Views
 
            
         }
-        
+        */
+        #endregion
     }
 }

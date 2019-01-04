@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectV1.Models
 {
-    class DataPath
+    public partial class DataPath
     {
         public int ID { get; set; }
 
@@ -14,7 +14,7 @@ namespace ProjectV1.Models
 
         public string ArchName { get; set; }
 
-        public List<Port> Ports { get; set; }
+        public List<Port> Porto { get; set; }
 
     }
 }

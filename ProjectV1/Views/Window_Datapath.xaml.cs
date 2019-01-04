@@ -73,13 +73,16 @@ namespace ProjectV1.Views
         private void Finish_Click(object sender, RoutedEventArgs e)
         {
             
-            DataPath dataPathObj = new DataPath()
+            ProjectV1.Models.DataPath dataPathObj = new DataPath()
             {
                 ID = 001,
                 Name = EntityNameTB.Text,
                 ArchName = ArchNameTB.Text,
                 Ports = ports
             };
+
+            DataPath temp1 = new DataPath();
+            temp1.
 
             dataPath1 = dataPathObj;
 
