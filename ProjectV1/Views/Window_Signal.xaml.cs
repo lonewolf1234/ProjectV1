@@ -23,8 +23,8 @@ namespace ProjectV1.Views
         public Window_Signal()
         {
             InitializeComponent();
-            MSB_TextBox.IsReadOnly = true;
-            LSB_TextBox.IsReadOnly = true;
+            //MSB_TextBox.IsReadOnly = true;
+            //LSB_TextBox.IsReadOnly = true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -34,8 +34,8 @@ namespace ProjectV1.Views
 
         private void Bus_Checked(object sender, RoutedEventArgs e)
         {
-            MSB_TextBox.IsReadOnly = false;
-            LSB_TextBox.IsReadOnly = false;
+            //MSB_TextBox.IsReadOnly = false;
+            //LSB_TextBox.IsReadOnly = false;
         }
 
         private void LSB_TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)

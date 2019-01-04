@@ -8,133 +8,137 @@
         Title="Create Signal" Height="450" Width="801" ResizeMode="NoResize">
     <Grid>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="2*"/>
-        </Grid.ColumnDefinitions>
-
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="3*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <!-- Left Side Column 0-->
 
-        <TextBlock
-            Grid.Row="0"
-            Grid.Column="0"
-            Text="Signal Name"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-         />
+        <Grid Grid.Row="0">
 
-        <TextBlock
-            Grid.Row="1"
-            Grid.Column="0"
-            Text="Bus"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-         />
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <TextBlock
-            Grid.Row="2"
-            Grid.Column="0"
-            Text="MSB"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-         />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!---->
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Label Content="Signal Name" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </Grid>
 
-        <TextBlock
-            Grid.Row="3"
-            Grid.Column="0"
-            Text="LSB"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-         />
+            <Grid Grid.Row="0" Grid.Column="1">
+                <TextBox Name="EntityNameTB" Grid.Row="0" Grid.Column="2" Margin="60,15,250,15" Background="WhiteSmoke"/>
+            </Grid>
+            
+            <!---->
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Label Content="Bus" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </Grid>
 
-        <TextBlock
-            Grid.Row="4"
-            Grid.Column="0"
-            Text="Source"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-        />
+            <Grid Grid.Row="1" Grid.Column="1">
+                <CheckBox HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="60,5"/>
+            </Grid>
 
-        <TextBlock
-            Grid.Row="5"
-            Grid.Column="0"
-            Text="Destination"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-        />
+            <!---->
+            <Grid Grid.Row="2" Grid.Column="0">
+                <Label Content="MSB" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </Grid>
 
-        <!-- Right Side Column 1-->
-        
-        <TextBox 
-            Grid.Row="0"
-            Grid.Column="1"
-            Margin="70,20,120,20"
-            Background="WhiteSmoke"
-        />
+            <Grid Grid.Column="1" Grid.Row="2">
+                <TextBox Grid.Row="0" Grid.Column="2" Margin="60,15,250,15" Background="WhiteSmoke"/>
+            </Grid>
 
-        <CheckBox
-            Name="Bus"
-            Grid.Row="1"
-            Grid.Column="1"
-            Margin="70,20,430,20"
-            VerticalAlignment="Center"
-            Checked="Bus_Checked"
-        />
+            <!---->
+            <Grid Grid.Row="3" Grid.Column="0">
+                <Label Content="LSB" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </Grid>
 
-        <TextBox 
-            Name="MSB_TextBox"
-            Grid.Row="2"
-            Grid.Column="1"
-            Margin="70,20,420,20"
-            Background="WhiteSmoke"
-            PreviewTextInput="MSB_TextBox_PreviewTextInput"
-        />
+            <Grid Grid.Row="3" Grid.Column="1">
+                <TextBox  Grid.Row="0" Grid.Column="2" Margin="60,15,250,15" Background="WhiteSmoke"/>
+            </Grid>
 
-        <TextBox 
-            Name="LSB_TextBox"
-            Grid.Row="3"
-            Grid.Column="1"
-            Margin="70,20,420,20"
-            Background="WhiteSmoke"
-            PreviewTextInput="LSB_TextBox_PreviewTextInput"
-        />
+        </Grid>
 
-        <ComboBox
-            Grid.Row="4"
-            Grid.Column="1"
-            Margin="70,20,120,20"
-        />
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <ComboBox
-            Grid.Row="5"
-            Grid.Column="1"
-            Margin="70,20,120,20"
-        />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
 
-        <Button
-            Grid.Row="6"
-            Grid.Column="6"
-            Content="Finish"
-            Margin="400,20,54,20"
-        />
+            <Grid Grid.Row="0" Grid.ColumnSpan="2">
+                <Label Content="Source" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
 
-        <Button
-            Grid.Row="6"
-            Grid.Column="6"
-            Content="Cancel"
-            Margin="304,20,150,20"
-        />
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Label Content="Component" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </Grid>
 
-       
+            <Grid Grid.Row="1" Grid.Column="1">
+                <ComboBox Height="25"  Margin="20,5"/>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="0">
+                <Label Content="Port" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="1">
+                <ComboBox Height="25" Margin="20,5"/>
+            </Grid>
+            
+            
+
+            <Grid Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2">
+                <Label Content="Destination" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="2">
+                <Label Content="Component" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="3">
+                <ComboBox Height="25"  Margin="20,5"/>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="2">
+                <Label Content="Port" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="3">
+                <ComboBox Height="25"  Margin="20,5"/>
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Button
+                Grid.Row="3"
+                Name="Cancel"
+                Content="Cancel"
+                Margin="575,10,150,22"
+            />
+
+            <Button
+                Grid.Row="3"
+                Name="Finish"
+                Content="Finish"
+                Margin="670,10,55,22"
+            />
+        </Grid>
+
     </Grid>
 </Window>
