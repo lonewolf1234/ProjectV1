@@ -164,7 +164,7 @@ namespace ProjectV1.Views
                 using (StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(DebugPath, "VHDLFile.txt")))
 
                 {
-                    outputFile.WriteLine(DebugPath);
+                    //outputFile.WriteLine(DebugPath);
 
                     //libraries
                     foreach (string line in Libraries_txt)

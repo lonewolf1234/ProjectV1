@@ -81,7 +81,7 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Row="0" Grid.ColumnSpan="2">
-                <Label Content="Source" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Content="Source" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="16" FontWeight="Bold"/>
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="0">
@@ -103,7 +103,7 @@
             
 
             <Grid Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2">
-                <Label Content="Destination" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Content="Destination" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold"/>
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="2">
